@@ -22,7 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={jetBrainsMono.variable}>
-        <Header /> {children}
+        <Header />
+        {children}
       </body>
     </html>
   );

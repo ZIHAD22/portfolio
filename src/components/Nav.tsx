@@ -1,5 +1,5 @@
 "use client";
-import { links } from "@/lib/utils";
+import { links } from "@/lib/constant";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
