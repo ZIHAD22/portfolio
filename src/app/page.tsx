@@ -1,9 +1,9 @@
 import Image from "next/image";
-
+import Main from "../pages/Home/Main";
 export default function Home() {
   return (
     <div>
-      <h1>hello</h1>
+      <Main />
     </div>
   );
 }
