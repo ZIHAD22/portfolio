@@ -1,4 +1,4 @@
-import { Tlinks, TSocials } from "@/Types";
+import { Tlinks, TSocials, TStats } from "@/Types";
 import { FaGithub, FaLinkedin, FaYoutube, FaTwitter } from "react-icons/fa";
 
 export const links: Tlinks = [
@@ -40,5 +40,24 @@ export const socialLinks: TSocials = [
   {
     icon: <FaTwitter />,
     path: "/",
+  },
+];
+
+export const stats: TStats = [
+  {
+    num: 4,
+    text: "Years Of Experiences",
+  },
+  {
+    num: 50,
+    text: "Project Completed",
+  },
+  {
+    num: 9,
+    text: "Technology Master",
+  },
+  {
+    num: 1000,
+    text: "Code Commits",
   },
 ];
