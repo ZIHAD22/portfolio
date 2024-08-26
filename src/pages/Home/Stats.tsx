@@ -16,10 +16,16 @@ const Stats = () => {
               <CountUp
                 end={stat.num}
                 duration={5}
-                delay={2}
+                delay={0.3}
                 className="text-4xl xl:text-6xl font-extrabold"
               />
-              <p>{stat.text}</p>
+              <p
+                className={`${
+                  stat.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"
+                } leading-snug text-white/80`}
+              >
+                {stat.text}
+              </p>
             </div>
           ))}
         </div>
