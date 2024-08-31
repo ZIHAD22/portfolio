@@ -7,7 +7,7 @@ import Photo from "@/components/Photo";
 const Hero = () => {
   return (
     <section className="h-full">
-      <div className="container mx-auto h-full">
+      <div className="mx-auto h-full">
         <div className="flex flex-col xl:flex-row justify-between items-center xl:pt-8 xl:pb-24">
           <div className="text-center xl:text-left order-2 xl:order-none">
             <span>Software Developer</span>

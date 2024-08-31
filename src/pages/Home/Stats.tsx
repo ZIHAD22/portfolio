@@ -6,7 +6,7 @@ import CountUp from "react-countup";
 const Stats = () => {
   return (
     <section className="mt-[45px] xl:mt-0">
-      <div className="container mx-auto">
+      <div className="mx-auto">
         <div className="flex flex-wrap gap-6 max-w-[80vw] mx-auto xl:max-w-none">
           {stats.map((stat, i) => (
             <div
