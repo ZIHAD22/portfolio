@@ -44,7 +44,7 @@ export type TSkills = {
   title: string;
   description: string;
   skills: {
-    icon: string;
+    icon: ReactNode;
     name: string;
   }[];
 };

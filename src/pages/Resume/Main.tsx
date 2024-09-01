@@ -4,6 +4,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { education } from "@/lib/constant";
 import { motion } from "framer-motion";
 import React from "react";
+import EducationTabs from "./EducationTabs";
+import SkillTabs from "./SkillTabs";
 
 const Main = () => {
   return (
@@ -16,49 +18,29 @@ const Main = () => {
         }}
         className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
       >
-        <div className="mx-auto">
+        <div className="mx-auto w-full">
           <Tabs defaultValue="education" className="flex flex-col gap-[60px]">
-            <TabsList className="flex flex-col xl:flex-row w-full max-w-[380px] xl:max-w-full mx-auto xl:mx-0 gap-6">
+            <TabsList className="flex flex-col xl:flex-row w-full xl:max-w-full mx-auto xl:mx-0 gap-6">
               <TabsTrigger value="about" className="w-full">
                 About
               </TabsTrigger>
-              <TabsTrigger value="education">Education</TabsTrigger>
-              <TabsTrigger value="skills">Skills</TabsTrigger>
-              <TabsTrigger value="projects">Projects</TabsTrigger>
+              <TabsTrigger value="education" className="w-full">
+                Education
+              </TabsTrigger>
+              <TabsTrigger value="skills" className="w-full">
+                Skills
+              </TabsTrigger>
+              <TabsTrigger value="projects" className="w-full">
+                Projects
+              </TabsTrigger>
             </TabsList>
 
             {/* content */}
             <div className="min-h-[70vh] w-full">
-              <TabsContent value="education" className="">
-                <div>
-                  <h1 className="text-4xl text-center font-semibold mb-8">
-                    {education.title}
-                  </h1>
-                  <p className="max-w-[900px] text-center mx-auto text-white/80">
-                    {education.description}
-                  </p>
-                  <div className="grid grid-cols-1  xl:grid-cols-2 gap-4 w-full my-8">
-                    {education.education.map((edu, i) => (
-                      <div
-                        key={i}
-                        className="border-2 border-accent p-5 rounded-md"
-                      >
-                        <h5 className="text-xl font-bold">
-                          Institution: {edu.institution}
-                        </h5>
-                        <h5 className="text-sm text-white/80 mt-3">
-                          {edu.degree}
-                        </h5>
-                        <h5 className="text-sm text-white/80 mt-3">
-                          Batch - {edu.batch}, From {edu.duration.from} to{" "}
-                          {edu.duration.to}
-                        </h5>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              <EducationTabs />
+              <TabsContent value="skills">
+                <SkillTabs />
               </TabsContent>
-              <TabsContent value="skills">skills</TabsContent>
               <TabsContent value="about">About</TabsContent>
             </div>
           </Tabs>

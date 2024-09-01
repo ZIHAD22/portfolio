@@ -5,6 +5,7 @@ import {
   FaYoutube,
   FaWhatsapp,
   FaFacebook,
+  FaReact,
 } from "react-icons/fa";
 
 export const links: Tlinks = [
@@ -142,39 +143,39 @@ export const skills: TSkills = {
     "With over 5 years of experience in front-end development, I offer a wide range of technical skills to ensure your web applications are built to the highest standards. My expertise lies in crafting pixel-perfect, responsive designs and utilizing modern technologies to bring your vision to life.",
   skills: [
     {
-      icon: "⚛️",
+      icon: <FaReact />,
       name: "React.js Development",
     },
     {
-      icon: "🚀",
+      icon: <FaReact />,
       name: "Next.js Development",
     },
     {
-      icon: "🛠️",
+      icon: <FaReact />,
       name: "TypeScript",
     },
     {
-      icon: "🔄",
+      icon: <FaReact />,
       name: "Redux",
     },
     {
-      icon: "🌐",
+      icon: <FaReact />,
       name: "MERN Stack",
     },
     {
-      icon: "📝",
+      icon: <FaReact />,
       name: "Static Site Generation",
     },
     {
-      icon: "🌍",
+      icon: <FaReact />,
       name: "HTML5 & CSS3",
     },
     {
-      icon: "🎨",
+      icon: <FaReact />,
       name: "Tailwind CSS & Bootstrap 5",
     },
     {
-      icon: "🎯",
+      icon: <FaReact />,
       name: "Pixel-Perfect Design",
     },
   ],
