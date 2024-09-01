@@ -21,7 +21,7 @@ const Main = () => {
         className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
       >
         <div className="mx-auto w-full">
-          <Tabs defaultValue="education" className="flex flex-col gap-[60px]">
+          <Tabs defaultValue="about" className="flex flex-col gap-[60px]">
             <TabsList className="flex flex-col xl:flex-row w-full xl:max-w-full mx-auto xl:mx-0 gap-6">
               <TabsTrigger value="about" className="w-full">
                 About

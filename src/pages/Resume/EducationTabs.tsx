@@ -15,13 +15,15 @@ const EducationTabs = () => {
         <div className="grid grid-cols-1  xl:grid-cols-2 gap-4 w-full my-8">
           {education.education.map((edu, i) => (
             <div key={i} className="border-2 border-accent p-5 rounded-md">
-              <h5 className="text-xl font-bold">
+              <h5 className="text-xl font-bold capitalize">
                 Institution: {edu.institution}
               </h5>
-              <h5 className="text-sm text-white/80 mt-3">{edu.degree}</h5>
               <h5 className="text-sm text-white/80 mt-3">
-                Batch - {edu.batch}, From {edu.duration.from} to{" "}
-                {edu.duration.to}
+                Degree: {edu.degree}
+              </h5>
+              <h5 className="text-sm text-white/80 mt-3">
+                {edu.batch && <span>Batch - {edu.batch},</span>} From{" "}
+                {edu.duration.from} to {edu.duration.to}
               </h5>
             </div>
           ))}
