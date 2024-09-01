@@ -21,7 +21,7 @@ export type TAbout = {
   info: {
     fieldName: string;
     fieldValue: string;
-    linkName?: string;
+    linkValue?: string;
   }[];
 };
 export type TEducation = {

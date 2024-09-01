@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import React from "react";
 import EducationTabs from "./EducationTabs";
 import SkillTabs from "./SkillTabs";
+import AboutTabs from "./AboutTabs";
+import Link from "next/link";
 
 const Main = () => {
   return (
@@ -30,9 +32,11 @@ const Main = () => {
               <TabsTrigger value="skills" className="w-full">
                 Skills
               </TabsTrigger>
-              <TabsTrigger value="projects" className="w-full">
-                Projects
-              </TabsTrigger>
+              <Link href="/works" className="w-full">
+                <TabsTrigger value="projects" className="w-full">
+                  Projects
+                </TabsTrigger>
+              </Link>
             </TabsList>
 
             {/* content */}
@@ -41,7 +45,9 @@ const Main = () => {
               <TabsContent value="skills">
                 <SkillTabs />
               </TabsContent>
-              <TabsContent value="about">About</TabsContent>
+              <TabsContent value="about">
+                <AboutTabs />
+              </TabsContent>
             </div>
           </Tabs>
         </div>

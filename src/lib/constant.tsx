@@ -69,22 +69,26 @@ export const stats: TStats = [
 export const about: TAbout = {
   title: "About me",
   description:
-    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quisquam velit ea mollitia ullam neque rerum fugiat, rem delectus ",
+    "With over 5 years of experience in front-end development, I offer a wide range of technical skills to ensure your web applications are built to the highest standards. My expertise lies in crafting pixel-perfect, responsive designs and utilizing modern technologies to bring your vision to life.",
   info: [
-    { fieldName: "Name", fieldValue: "MD. Zihad" },
+    { fieldName: "Name", fieldValue: "MD.ZIHAD" },
     { fieldName: "Experiences", fieldValue: "4+" },
     { fieldName: "Nationality", fieldValue: "Bangladeshi" },
-    { fieldName: "Email", fieldValue: "mdzihad2244@gmail.com" },
+    {
+      fieldName: "Email",
+      fieldValue: "mdzihad2244@gmail.com",
+      linkValue: "mailto:mdzihad2244@gmail.com",
+    },
     { fieldName: "Freelance", fieldValue: "Available" },
     {
       fieldName: "Linkedin",
-      fieldValue: "https://www.linkedin.com/in/md-zihad-324b56208/",
-      linkName: "MD ZIHAD",
+      fieldValue: "MD ZIHAD",
+      linkValue: "https://www.linkedin.com/in/md-zihad-324b56208/",
     },
     {
       fieldName: "Whatsapp",
-      fieldValue: "wa.me/+8801818991513",
-      linkName: "01818991513",
+      linkValue: "https://www.wa.me/+8801818991513",
+      fieldValue: "01818991513",
     },
   ],
 };
@@ -95,7 +99,7 @@ export const education: TEducation = {
   icon: "",
   title: "Education",
   description:
-    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quisquam velit ea mollitia ullam neque rerum fugiat, rem delectus ",
+    "With over 5 years of experience in front-end development, I offer a wide range of technical skills to ensure your web applications are built to the highest standards. My expertise lies in crafting pixel-perfect, responsive designs and utilizing modern technologies to bring your vision to life.",
   education: [
     {
       institution: "daffodil international university",
