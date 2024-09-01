@@ -16,7 +16,7 @@ const Main = () => {
         }}
         className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
       >
-        <div className="container mx-auto">
+        <div className="mx-auto">
           <Tabs defaultValue="education" className="flex flex-col gap-[60px]">
             <TabsList className="flex flex-col xl:flex-row w-full max-w-[380px] xl:max-w-full mx-auto xl:mx-0 gap-6">
               <TabsTrigger value="about" className="w-full">
@@ -37,24 +37,25 @@ const Main = () => {
                   <p className="max-w-[900px] text-center mx-auto text-white/80">
                     {education.description}
                   </p>
-                  <ScrollArea className="h-[480px]">
-                    <div className="grid grid-cols-2 gap-4 w-full mt-8">
-                      {education.education.map((edu, i) => (
-                        <div key={i} className="border-2 border-accent p-5">
-                          <h5 className="text-xl font-bold">
-                            Institution: {edu.institution}
-                          </h5>
-                          <h5 className="text-sm text-white/80 mt-3">
-                            {edu.degree}
-                          </h5>
-                          <h5 className="text-sm text-white/80 mt-3">
-                            Batch - {edu.batch}, From {edu.duration.from} to{" "}
-                            {edu.duration.to}
-                          </h5>
-                        </div>
-                      ))}
-                    </div>
-                  </ScrollArea>
+                  <div className="grid grid-cols-1  xl:grid-cols-2 gap-4 w-full my-8">
+                    {education.education.map((edu, i) => (
+                      <div
+                        key={i}
+                        className="border-2 border-accent p-5 rounded-md"
+                      >
+                        <h5 className="text-xl font-bold">
+                          Institution: {edu.institution}
+                        </h5>
+                        <h5 className="text-sm text-white/80 mt-3">
+                          {edu.degree}
+                        </h5>
+                        <h5 className="text-sm text-white/80 mt-3">
+                          Batch - {edu.batch}, From {edu.duration.from} to{" "}
+                          {edu.duration.to}
+                        </h5>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </TabsContent>
               <TabsContent value="skills">skills</TabsContent>
