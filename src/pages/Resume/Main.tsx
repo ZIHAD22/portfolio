@@ -39,6 +39,7 @@ const Main = () => {
             </TabsList>
 
             {/* content */}
+
             <div className="min-h-[70vh] w-full">
               <TabsContent value="education">
                 <EducationTabs />
