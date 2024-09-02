@@ -87,7 +87,7 @@ export const about: TAbout = {
     },
     {
       fieldName: "Whatsapp",
-      linkValue: "https://www.wa.me/+8801818991513",
+      linkValue: "https://wa.me/+8801818991513",
       fieldValue: "01818991513",
     },
   ],
