@@ -1,6 +1,6 @@
 import { about } from "@/lib/constant";
 import React from "react";
-import { FaLongArrowAltRight } from "react-icons/fa";
+import { BsArrowUpRight } from "react-icons/bs";
 
 const AboutTabs = () => {
   return (
@@ -22,7 +22,7 @@ const AboutTabs = () => {
             </div>
             {info.linkValue && (
               <div className="text-accent">
-                <FaLongArrowAltRight size="25px" />
+                <BsArrowUpRight size="25px" />
               </div>
             )}
           </a>
