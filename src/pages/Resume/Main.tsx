@@ -1,7 +1,6 @@
 "use client";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { education } from "@/lib/constant";
 import { motion } from "framer-motion";
 import React from "react";
 import EducationTabs from "./EducationTabs";
@@ -41,7 +40,9 @@ const Main = () => {
 
             {/* content */}
             <div className="min-h-[70vh] w-full">
-              <EducationTabs />
+              <TabsContent value="education">
+                <EducationTabs />
+              </TabsContent>
               <TabsContent value="skills">
                 <SkillTabs />
               </TabsContent>
