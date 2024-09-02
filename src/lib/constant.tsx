@@ -1,4 +1,12 @@
-import { TAbout, TEducation, Tlinks, TSkills, TSocials, TStats } from "@/Types";
+import {
+  TAbout,
+  TEducation,
+  Tlinks,
+  TProject,
+  TSkills,
+  TSocials,
+  TStats,
+} from "@/Types";
 import {
   FaGithub,
   FaLinkedin,
@@ -184,3 +192,62 @@ export const skills: TSkills = {
     },
   ],
 };
+
+// fake project data
+export const projects: TProject[] = [
+  {
+    id: 1,
+    title: "Weather App",
+    category: "Web Application",
+    description:
+      "A web application that provides real-time weather updates and forecasts using a public API.",
+    stack: [{ name: "React" }, { name: "Node.js" }, { name: "Express" }],
+    image: "https://ibb.co/crBqDdK",
+    live: "https://weatherapp.example.com",
+    github: "https://github.com/username/weather-app",
+  },
+  {
+    id: 2,
+    title: "Portfolio Website",
+    category: "Personal",
+    description:
+      "A personal portfolio website to showcase my projects, skills, and experiences.",
+    stack: [{ name: "HTML" }, { name: "CSS" }, { name: "JavaScript" }],
+    image: "https://ibb.co/crBqDdK",
+    live: "https://portfolio.example.com",
+    github: "https://github.com/username/portfolio-website",
+  },
+  {
+    id: 3,
+    title: "E-commerce Platform",
+    category: "Web Application",
+    description:
+      "An e-commerce platform with features like product listings, shopping cart, and payment processing.",
+    stack: [{ name: "Angular" }, { name: "Firebase" }, { name: "Bootstrap" }],
+    image: "https://ibb.co/crBqDdK",
+    live: "https://ecommerce.example.com",
+    github: "https://github.com/username/ecommerce-platform",
+  },
+  {
+    id: 4,
+    title: "Chat Application",
+    category: "Web Application",
+    description:
+      "A real-time chat application that supports one-on-one and group messaging.",
+    stack: [{ name: "Vue.js" }, { name: "Socket.io" }, { name: "Node.js" }],
+    image: "https://ibb.co/crBqDdK",
+    live: "https://chatapp.example.com",
+    github: "https://github.com/username/chat-application",
+  },
+  {
+    id: 5,
+    title: "Task Manager",
+    category: "Productivity",
+    description:
+      "A task management tool that helps users create, organize, and track their tasks efficiently.",
+    stack: [{ name: "Python" }, { name: "Django" }, { name: "PostgreSQL" }],
+    image: "https://ibb.co/crBqDdK",
+    live: "https://taskmanager.example.com",
+    github: "https://github.com/username/task-manager",
+  },
+];

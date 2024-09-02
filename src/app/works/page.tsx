@@ -1,3 +1,4 @@
+import Main from "@/pages/Works/Main";
 import { Metadata } from "next";
 import React from "react";
 
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 const Works = () => {
-  return <div>This is Works page</div>;
+  return <Main />;
 };
 
 export default Works;

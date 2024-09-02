@@ -48,3 +48,16 @@ export type TSkills = {
     name: string;
   }[];
 };
+
+export type TProject = {
+  id: number;
+  title: string;
+  category: string;
+  description: string;
+  stack: {
+    name: string;
+  }[];
+  image: string;
+  live: string;
+  github: string;
+};
