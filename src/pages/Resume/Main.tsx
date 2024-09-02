@@ -1,5 +1,4 @@
 "use client";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 import React from "react";
@@ -31,10 +30,11 @@ const Main = () => {
               <TabsTrigger value="skills" className="w-full">
                 Skills
               </TabsTrigger>
-              <Link href="/works" className="w-full">
-                <TabsTrigger value="projects" className="w-full">
-                  Projects
-                </TabsTrigger>
+              <Link
+                href="/works"
+                className="inline-flex items-center w-full bg-[#27272c] justify-center whitespace-nowrap text-white rounded-lg p-3 text-balance font-medium ring-offset-white transition-all disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-accent data-[state=active]:text-primary data-[state=active]:font-bold data-[state:active]:shadow-sm"
+              >
+                Projects
               </Link>
             </TabsList>
 
