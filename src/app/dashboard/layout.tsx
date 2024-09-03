@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "../globals.css";
+import SideNav from "@/pages/Dashboard/Shared/SideNav";
+import { Button } from "@/components/ui/button";
+import MobileNav from "@/pages/Dashboard/Shared/MobileNav";
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -20,7 +23,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${jetBrainsMono.variable}`}>{children}</body>
+      <body className={`${jetBrainsMono.variable}`}>
+        <div className="grid min-h-screen w-full lg:grid-cols-[220px_1fr] xl:grid-cols-[280px_1fr] bg-primary">
+          {/* side nav */}
+          <SideNav />
+          <div className="flex flex-col bg-primary">
+            {/* mobile nav */}
+            <MobileNav />
+
+            {children}
+          </div>
+        </div>
+      </body>
     </html>
   );
 }
