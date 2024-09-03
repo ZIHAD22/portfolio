@@ -11,7 +11,7 @@ const EducationTabs = () => {
         {education.description}
       </p>
       <div className="grid grid-cols-1  xl:grid-cols-2 gap-4 w-full my-8">
-        {education.education.map((edu, i) => (
+        {education?.education?.map((edu, i) => (
           <div key={i} className="border-2 border-accent p-5 rounded-md">
             <h5 className="text-xl font-bold capitalize">
               Institution: {edu.institution}

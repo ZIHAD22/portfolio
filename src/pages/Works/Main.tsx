@@ -24,7 +24,7 @@ const Main = () => {
         </Button>
       </div>
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
-        {projects.map((project, i) => (
+        {projects?.map((project, i) => (
           <ProjectCard
             key={i}
             category={project.category}

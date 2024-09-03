@@ -23,7 +23,7 @@ const MobileNav = () => {
           </Link>
         </div>
         <nav className="flex flex-col justify-center items-center gap-8">
-          {links.map((link, i) => (
+          {links?.map((link, i) => (
             <SheetClose key={i} asChild>
               <Link
                 href={link.path}

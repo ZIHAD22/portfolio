@@ -12,7 +12,7 @@ const SkillTabs = () => {
         {skills.description}
       </p>
       <div className="grid grid-cols-1  xl:grid-cols-3 gap-4 w-full my-8">
-        {skills.skills.map((skill, i) => (
+        {skills?.skills?.map((skill, i) => (
           <div
             key={i}
             className="border-2 border-accent p-5 rounded-md text-center"

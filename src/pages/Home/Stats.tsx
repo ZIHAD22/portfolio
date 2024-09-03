@@ -8,7 +8,7 @@ const Stats = () => {
     <section className="mt-[45px] xl:mt-0">
       <div className="mx-auto">
         <div className="flex flex-wrap gap-6 max-w-[80vw] mx-auto xl:max-w-none">
-          {stats.map((stat, i) => (
+          {stats?.map((stat, i) => (
             <div
               key={i}
               className="flex-1 flex gap-4 items-center justify-center xl:justify-start"

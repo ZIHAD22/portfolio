@@ -10,7 +10,7 @@ const AboutTabs = () => {
         {about.description}
       </p>
       <div className="grid grid-cols-1  xl:grid-cols-3 gap-4 w-full my-8">
-        {about.info.map((info, i) => (
+        {about?.info?.map((info, i) => (
           <a
             key={i}
             href={info.linkValue && info.linkValue}
