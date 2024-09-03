@@ -25,8 +25,8 @@ const ProjectCard = ({
       <div className="h-1/2 w-full p-3">
         <Image alt="" src="/assets/work/project.png" width={400} height={200} />
       </div>
-      <div className="h-1/2 p-2 flex flex-col justify-center">
-        <h1 className="p-2">{title}</h1>
+      <div className="h-1/2 p-2 flex flex-col justify-evenly">
+        <h1 className="p-2 text-xl">{title}</h1>
         <h1 className="text-xs text-white/80 px-2">{description}</h1>
         <div className="text-xs text-white/80 mt-9">
           {stack.map((sta, i) => (
@@ -56,7 +56,7 @@ const ProjectCard = ({
         <BsGithub size="30px" />
       </Link>
       {mouseOver && (
-        <span className="text-xs text-accent border-[1px] border-accent p-2 absolute top-5 left-5 rounded-md bg-primary delay-100 duration-200">
+        <span className="text-xs text-accent border-[1px] border-accent p-2 absolute top-5 left-5 rounded-md bg-primary delay-100 duration-200 cursor-pointer">
           {category}
         </span>
       )}
