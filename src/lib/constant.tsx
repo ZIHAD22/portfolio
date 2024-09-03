@@ -29,10 +29,6 @@ export const links: Tlinks = [
     name: "work",
     path: "/works",
   },
-  {
-    name: "contact",
-    path: "/contact",
-  },
 ];
 
 export const socialLinks: TSocials = [

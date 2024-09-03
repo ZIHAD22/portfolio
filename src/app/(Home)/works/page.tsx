@@ -1,4 +1,4 @@
-import Main from "@/pages/Works/Main";
+import Main from "@/pages/Home/Works/Main";
 import { Metadata } from "next";
 import React from "react";
 
