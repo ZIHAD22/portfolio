@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "../globals.css";
-import Header from "@/components/Shared/Header";
+import AuthContextProvider from "@/components/Shared/AuthContextProvider";
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -10,7 +10,7 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Md Zihad | Javascript Developer",
+  title: "Sign in",
   description: "Full Stack Javascript Developer",
 };
 
@@ -22,8 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${jetBrainsMono.variable} container`}>
-        <Header />
-        {children}
+        <AuthContextProvider>{children}</AuthContextProvider>
       </body>
     </html>
   );

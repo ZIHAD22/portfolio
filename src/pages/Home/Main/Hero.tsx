@@ -1,8 +1,8 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { FiDownload } from "react-icons/fi";
-import Social from "@/components/Social";
-import Photo from "@/components/Photo";
+import Social from "@/components/Shared/Social";
+import Photo from "@/components/Shared/Photo";
 
 const Hero = () => {
   return (

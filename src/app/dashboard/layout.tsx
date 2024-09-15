@@ -4,6 +4,7 @@ import "../globals.css";
 import SideNav from "@/pages/Dashboard/Shared/SideNav";
 import { Button } from "@/components/ui/button";
 import MobileNav from "@/pages/Dashboard/Shared/MobileNav";
+import AuthContextProvider from "@/components/Shared/AuthContextProvider";
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -22,19 +23,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${jetBrainsMono.variable}`}>
-        <div className="grid min-h-screen w-full lg:grid-cols-[220px_1fr] xl:grid-cols-[280px_1fr] bg-primary">
-          {/* side nav */}
-          <SideNav />
-          <div className="flex flex-col bg-primary">
-            {/* mobile nav */}
-            <MobileNav />
+    <AuthContextProvider>
+      <html lang="en">
+        <body className={`${jetBrainsMono.variable}`}>
+          <div className="grid min-h-screen w-full lg:grid-cols-[220px_1fr] xl:grid-cols-[280px_1fr] bg-primary">
+            {/* side nav */}
+            <SideNav />
+            <div className="flex flex-col bg-primary">
+              {/* mobile nav */}
+              <MobileNav />
 
-            {children}
+              {children}
+            </div>
           </div>
-        </div>
-      </body>
-    </html>
+        </body>
+      </html>
+    </AuthContextProvider>
   );
 }

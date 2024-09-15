@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../ui/sheet";
 import { CiMenuFries } from "react-icons/ci";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { links } from "@/lib/constant";
 
 const MobileNav = () => {
