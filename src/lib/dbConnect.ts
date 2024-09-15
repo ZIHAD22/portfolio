@@ -17,8 +17,10 @@ const dbConnect = async () => {
     const db = client.db("portfolio");
     const adminCollection = db.collection("admin");
     const admin = {
+      name: "MD. ZIHAD",
       email: "mdzihad2244@gmail.com",
-      password: "mdzihad2244@zihad",
+      password: "",
+      isPasswordChange: false,
     };
     const result = await adminCollection.insertOne(admin);
     return db as Db;
