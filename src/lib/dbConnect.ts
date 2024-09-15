@@ -1,7 +1,16 @@
-const { MongoClient } = require("mongodb");
+// const { MongoClient } = require("mongodb");
+import { Db, MongoClient, ServerApiVersion } from "mongodb";
 
 const uri = process.env.NEXT_PUBLIC_DATABASE;
-const client = new MongoClient(uri);
+
+const client = new MongoClient(uri as string, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
+});
+
 const dbConnect = async () => {
   try {
     await client.connect();
@@ -12,7 +21,7 @@ const dbConnect = async () => {
       password: "mdzihad2244@zihad",
     };
     const result = await adminCollection.insertOne(admin);
-    return db;
+    return db as Db;
   } catch (error) {
     console.log(error);
   }

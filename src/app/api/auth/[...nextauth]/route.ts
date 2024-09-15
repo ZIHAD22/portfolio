@@ -1,4 +1,5 @@
 import { dbConnect } from "@/lib/dbConnect";
+import { Db } from "mongodb";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -19,11 +20,11 @@ const handler = NextAuth({
         email: {},
         password: {},
       },
-      async authorize(credentials, req) {
+      async authorize(credentials, req): Promise<any> {
         if (!credentials) {
           return { message: "please provide info" };
         }
-        const db = await dbConnect();
+        const db = (await dbConnect()) as Db;
         const userCollection = db.collection("admin");
         const findUser = await userCollection.findOne({
           email: credentials?.email,
