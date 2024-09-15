@@ -16,13 +16,17 @@ const dbConnect = async () => {
     await client.connect();
     const db = client.db("portfolio");
     const adminCollection = db.collection("admin");
-    const admin = {
-      name: "MD. ZIHAD",
-      email: "mdzihad2244@gmail.com",
-      password: "",
-      isPasswordChange: false,
-    };
-    const result = await adminCollection.insertOne(admin);
+    const isAdminExist = await adminCollection.findOne({});
+    if (!isAdminExist?._id) {
+      const admin = {
+        name: "MD. ZIHAD",
+        email: "mdzihad2244@gmail.com",
+        password: "",
+        isPasswordChange: false,
+      };
+      await adminCollection.insertOne(admin);
+    }
+
     return db as Db;
   } catch (error) {
     console.log(error);
