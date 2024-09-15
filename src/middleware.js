@@ -2,7 +2,11 @@ import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
 export const middleware = async (req) => {
-  const token = cookies(req).get("next-auth.session-token");
+  const tokenName =
+    process.env.NODE_ENV === "development"
+      ? "next-auth.session-token"
+      : "__Secure-next-auth.session-token";
+  const token = cookies(req).get(tokenName);
   if (!token) {
     return NextResponse.redirect(new URL("/auth/signin", req.url));
   }
