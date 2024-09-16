@@ -30,6 +30,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TProject } from "@/Types";
 import { File, ListFilter, MoreHorizontal, PlusCircle } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const ProjectList = ({ projects }: { projects: TProject[] }) => {
@@ -56,18 +57,15 @@ const ProjectList = ({ projects }: { projects: TProject[] }) => {
               <DropdownMenuCheckboxItem>Archived</DropdownMenuCheckboxItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <Button size="sm" variant="outline" className="h-8 gap-1">
-            <File className="h-3.5 w-3.5" />
-            <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-              Export
-            </span>
-          </Button>
-          <Button size="sm" className="h-8 gap-1">
+          <Link
+            href="works/create-project"
+            className="h-8 gap-1 border border-accent flex justify-center items-center rounded-md px-2"
+          >
             <PlusCircle className="h-3.5 w-3.5" />
             <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
               Add Project
             </span>
-          </Button>
+          </Link>
         </div>
       </div>
 
@@ -96,7 +94,7 @@ const ProjectList = ({ projects }: { projects: TProject[] }) => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {projects.map((pro, i) => (
+              {projects?.map((pro, i) => (
                 <TableRow key={i}>
                   <TableCell className="hidden sm:table-cell">
                     <Image
