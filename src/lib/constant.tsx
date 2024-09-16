@@ -16,6 +16,18 @@ import {
   FaReact,
 } from "react-icons/fa";
 
+export const dashboardMenu = [
+  {
+    name: "Dashboard",
+    path: "/dashboard",
+  },
+  {
+    name: "Work",
+    path: "/works",
+    count: 6,
+  },
+];
+
 export const links: Tlinks = [
   {
     name: "home",

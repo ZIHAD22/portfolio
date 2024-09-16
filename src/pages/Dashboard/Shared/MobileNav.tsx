@@ -15,8 +15,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { signOut } from "next-auth/react";
+import { dashboardMenu } from "@/lib/constant";
+import { usePathname } from "next/navigation";
 
 const MobileNav = () => {
+  const pathname = usePathname();
   return (
     <header className="flex h-14 items-center gap-4 border-b px-4 lg:h-[60px] lg:px-6">
       <Sheet>
@@ -37,23 +40,42 @@ const MobileNav = () => {
                 Zihad <span className="text-accent ">.</span>
               </h1>
             </Link>
-            <Link
-              href="/dashboard"
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-accent"
-            >
-              <Home className="h-5 w-5" />
-              Dashboard
-            </Link>
-            <Link
-              href="#"
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-[#b1b1cf1a] px-3 py-2 text-foreground hover:text-accent"
-            >
-              <ListPlus />
-              Works
-              <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#b1b1cf1a] border border-accent hover:text-accent">
-                6
-              </Badge>
-            </Link>
+            {dashboardMenu.map((menu, i) => {
+              if (menu.name === "Dashboard") {
+                return (
+                  <Link
+                    key={i}
+                    href="/dashboard"
+                    className={`flex items-center gap-3 rounded-lg px-3 bg-[#b1b1cf1a] py-2  transition-all hover:text-accent ${
+                      pathname === menu.path
+                        ? "text-accent"
+                        : "text-muted-foreground"
+                    } `}
+                  >
+                    <ListPlus />
+                    {menu.name}
+                  </Link>
+                );
+              } else if (menu.count) {
+                return (
+                  <Link
+                    key={i}
+                    href={`/dashboard${menu.path}`}
+                    className={`flex items-center gap-3 rounded-lg px-3 bg-[#b1b1cf1a] py-2  transition-all hover:text-accent ${
+                      pathname === "/dashboard" + menu.path
+                        ? "text-accent"
+                        : "text-muted-foreground"
+                    } `}
+                  >
+                    <ListPlus />
+                    {menu.name}
+                    <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
+                      {menu.count}
+                    </Badge>
+                  </Link>
+                );
+              }
+            })}
           </nav>
         </SheetContent>
       </Sheet>

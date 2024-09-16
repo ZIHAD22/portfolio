@@ -86,7 +86,7 @@ const ProjectList = ({ projects }: { projects: TProject[] }) => {
                   <span className="sr-only">Image</span>
                 </TableHead>
                 <TableHead>Name</TableHead>
-                <TableHead>Category</TableHead>
+                <TableHead className="">Category</TableHead>
                 <TableHead className="hidden md:table-cell">
                   Created at
                 </TableHead>
@@ -108,9 +108,7 @@ const ProjectList = ({ projects }: { projects: TProject[] }) => {
                     />
                   </TableCell>
                   <TableCell className="font-medium">{pro.title}</TableCell>
-                  <TableCell className="hidden md:table-cell">
-                    {pro.category}
-                  </TableCell>
+                  <TableCell className="">{pro.category}</TableCell>
                   <TableCell className="hidden md:table-cell">
                     2023-07-12 10:42 AM
                   </TableCell>

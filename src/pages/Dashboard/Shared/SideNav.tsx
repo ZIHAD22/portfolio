@@ -5,18 +5,7 @@ import { Bell, Home, ListPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { usePathname } from "next/navigation";
-
-const dashboardMenu = [
-  {
-    name: "Dashboard",
-    path: "/dashboard",
-  },
-  {
-    name: "Work",
-    path: "/works",
-    count: 6,
-  },
-];
+import { dashboardMenu } from "@/lib/constant";
 
 const SideNav = () => {
   const pathname = usePathname();
