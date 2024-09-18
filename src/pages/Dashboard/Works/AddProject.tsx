@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Theme from "../Shared/Theme";
 import {
   Card,
@@ -19,79 +20,187 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { TProject } from "@/Types";
+import TagInput from "../Shared/TagInput";
+import UploadInput from "../Shared/UploadInput";
+import axios from "axios";
 
 const AddProject = () => {
+  const [file, setFile] = useState<File | null>(null);
+  const [details, setDetails] = useState<TProject>({
+    category: "",
+    stack: [],
+    title: "",
+    description: "",
+    image: "",
+    live: "",
+    github: "",
+  });
+
+  const detailsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDetails({
+      ...details,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = async () => {
+    try {
+      if (!file) {
+        console.log("Please Select Image");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("image", file);
+
+      const response = await axios.post(
+        "https://api.imgbb.com/1/upload",
+        formData,
+        {
+          params: {
+            key: process.env.NEXT_PUBLIC_IMAGE_BB_KEY, // Replace with your API key
+          },
+        }
+      );
+
+      if (response.data.data.url) {
+        setDetails({
+          ...details,
+          image: response.data.data.url,
+        });
+      }
+
+      if (details.image) {
+        const { data } = await axios.post(
+          "http://localhost:3000/dashboard/works/api",
+          details
+        );
+        if (data.acknowledged) {
+          setDetails({
+            category: "",
+            stack: [],
+            title: "",
+            description: "",
+            image: "",
+            live: "",
+            github: "",
+          });
+          setFile(null);
+        }
+        console.log(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <Theme name="Add Project">
-      <Card className="w-[60%] m-auto">
+      <Card className="w-full xl:w-[60%] m-auto">
         <CardHeader>
           <CardTitle>Create Project</CardTitle>
           <CardDescription>Write down your project details</CardDescription>
         </CardHeader>
         <CardContent className="grid gap-6">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="area">Category</Label>
-              <Select defaultValue="billing">
-                <SelectTrigger id="area">
-                  <SelectValue placeholder="Select" />
+              <Label htmlFor="category">Category</Label>
+              <Select
+                value={details.category}
+                onValueChange={(v) => {
+                  setDetails({
+                    ...details,
+                    category: v,
+                  });
+                }}
+              >
+                <SelectTrigger id="category">
+                  <SelectValue placeholder="Select Category" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="team">Team</SelectItem>
-                  <SelectItem value="billing">Billing</SelectItem>
-                  <SelectItem value="account">Account</SelectItem>
-                  <SelectItem value="deployments">Deployments</SelectItem>
-                  <SelectItem value="support">Support</SelectItem>
+                  <SelectItem value="web application">
+                    Web Application
+                  </SelectItem>
+                  <SelectItem value="mobile application">
+                    Mobile Application
+                  </SelectItem>
+                  <SelectItem value="desktop application">
+                    Desktop Application
+                  </SelectItem>
+                  <SelectItem value="cmd">CMS</SelectItem>
+                  <SelectItem value="micro services">Micro services</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="security-level">Tags</Label>
-              <Select defaultValue="2">
-                <SelectTrigger
-                  id="security-level"
-                  className="w-[200px] truncate"
-                >
-                  <SelectValue placeholder="Select level" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="1">Severity 1 (Highest)</SelectItem>
-                  <SelectItem value="2">Severity 2</SelectItem>
-                  <SelectItem value="3">Severity 3</SelectItem>
-                  <SelectItem value="4">Severity 4 (Lowest)</SelectItem>
-                </SelectContent>
-              </Select>
+              <Label htmlFor="tags">Tags</Label>
+              <div
+                id="tags"
+                className={`${
+                  details.stack.length !== 0
+                    ? "border border-accent p-2 rounded-md"
+                    : ""
+                }`}
+              >
+                <TagInput details={details} setDetails={setDetails} />
+              </div>
             </div>
           </div>
           <div className="grid gap-2">
             <Label htmlFor="subject">Live Link</Label>
-            <Input id="subject" placeholder="Examples: mdzihadjs.me" />
+            <Input
+              value={details.live}
+              name="live"
+              onChange={detailsChange}
+              id="subject"
+              placeholder="Examples: mdzihadjs.me"
+            />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="subject">Upload Image</Label>
-            <Input type="file" id="subject" className="cursor-pointer" />
+            <UploadInput file={file} setFile={setFile} />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="subject">Github Link</Label>
             <Input
+              value={details.github}
+              name="github"
+              onChange={detailsChange}
               id="subject"
               placeholder="Examples: https://github.com/ZIHAD22/portfolio"
             />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="subject">Title</Label>
-            <Input id="subject" placeholder="Example: Portfolio project" />
+            <Input
+              name="title"
+              value={details.title}
+              onChange={detailsChange}
+              id="subject"
+              placeholder="Example: Portfolio project"
+            />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="description">Description</Label>
             <Textarea
+              value={details.description}
+              name="description"
+              onChange={(v) =>
+                setDetails({
+                  ...details,
+                  description: v.target.value,
+                })
+              }
               id="description"
               placeholder="Please include all information relevant to your issue."
             />
           </div>
         </CardContent>
         <CardFooter className="justify-between space-x-2">
-          <Button variant="outline" className="w-1/5 mx-auto">
+          <Button
+            onClick={handleSubmit}
+            variant="outline"
+            className="w-full xl:w-1/5 mx-auto"
+          >
             Create
           </Button>
         </CardFooter>
