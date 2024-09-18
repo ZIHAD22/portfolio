@@ -3,13 +3,15 @@ import { Button } from "@/components/ui/button";
 import React, { useEffect, useState } from "react";
 import ProjectList from "./ProjectList";
 import Theme from "../Shared/Theme";
+import axios from "axios";
 
 const Works = () => {
   const [projects, setProject] = useState([]);
   const fetchProject = async () => {
-    const data = await fetch("http://localhost:3000/dashboard/works/api");
-    const result = await data.json();
-    setProject(result);
+    const { data } = await axios.get(
+      `${process.env.NEXT_PUBLIC_ROOT_URL}/dashboard/works/api`
+    );
+    setProject(data);
   };
   useEffect(() => {
     fetchProject();
