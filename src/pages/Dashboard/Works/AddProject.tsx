@@ -72,7 +72,7 @@ const AddProject = () => {
 
       if (details.image) {
         const { data } = await axios.post(
-          "http://localhost:3000/dashboard/works/api",
+          `${process.env.NEXT_PUBLIC_ROOT_URL}/dashboard/works/api`,
           details
         );
         if (data.acknowledged) {
