@@ -13,8 +13,10 @@ const UploadInput = ({
   setFile: React.Dispatch<React.SetStateAction<File | null>>;
 }) => {
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(event.target.files);
     const selectedFile = event.target.files?.[0] || null;
     setFile(selectedFile);
+    event.target.value = "";
   };
 
   return (
@@ -26,6 +28,7 @@ const UploadInput = ({
         {file ? file.name : "Choose File"}
       </Label>
       <input
+        // value={file as File}
         type="file"
         id="file-upload"
         className="hidden"

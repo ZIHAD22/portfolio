@@ -63,36 +63,32 @@ const AddProject = () => {
         }
       );
 
-      if (response.data.data.url) {
-        setDetails({
-          ...details,
-          image: response.data.data.url,
-        });
+      if (!response.data.data.url) {
+        return console.log("something went wrong");
       }
 
-      if (details.image) {
-        const { data } = await axios.post(
-          `${process.env.NEXT_PUBLIC_ROOT_URL}/dashboard/works/api`,
-          details
-        );
-        if (data.acknowledged) {
-          setDetails({
-            category: "",
-            stack: [],
-            title: "",
-            description: "",
-            image: "",
-            live: "",
-            github: "",
-          });
-          setFile(null);
-        }
-        console.log(data);
+      const { data } = await axios.post(
+        `${process.env.NEXT_PUBLIC_ROOT_URL}/dashboard/works/api`,
+        { ...details, image: response.data.data.url }
+      );
+      if (data.acknowledged) {
+        setDetails({
+          category: "",
+          stack: [],
+          title: "",
+          description: "",
+          image: "",
+          live: "",
+          github: "",
+        });
+        setFile(null);
       }
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
   };
+  console.log(details);
   return (
     <Theme name="Add Project">
       <Card className="w-full xl:w-[60%] m-auto">
