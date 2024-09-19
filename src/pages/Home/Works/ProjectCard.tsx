@@ -16,7 +16,6 @@ const ProjectCard = ({
   id,
 }: TProject) => {
   const [mouseOver, setMouseOver] = useState(false);
-  console.log(live, github);
   return (
     <div
       className="w-full shadow-lg shadow-[#0a5b3a] h-[400px] rounded-md flex flex-col justify-center items-center border-accent border-[1px] relative"

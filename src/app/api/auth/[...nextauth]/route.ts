@@ -30,8 +30,6 @@ const handler = NextAuth({
           email: credentials?.email,
         });
 
-        console.log(findUser);
-
         if (!findUser) {
           return null;
         }

@@ -83,12 +83,10 @@ const AddProject = () => {
         });
         setFile(null);
       }
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
   };
-  console.log(details);
   return (
     <Theme name="Add Project">
       <Card className="w-full xl:w-[60%] m-auto">

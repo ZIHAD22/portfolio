@@ -32,8 +32,6 @@ const SignInPage = () => {
       redirect: true,
       callbackUrl: "/dashboard",
     });
-
-    console.log(responds);
   };
   return (
     <div className="h-screen flex justify-center items-center">
