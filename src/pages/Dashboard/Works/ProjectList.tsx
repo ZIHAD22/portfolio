@@ -1,5 +1,5 @@
 "use client";
-import { Badge } from "@/components/ui/badge";
+import moment from "moment";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -32,8 +32,31 @@ import { File, ListFilter, MoreHorizontal, PlusCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import axios from "axios";
 
-const ProjectList = ({ projects }: { projects: TProject[] }) => {
+const ProjectList = ({
+  projects,
+  setRefetch,
+}: {
+  projects: TProject[];
+  setRefetch: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
+  const getTime = (date: Date) => {
+    const formattedDate = moment(date).format("YYYY-MM-DD hh:mm A");
+    return formattedDate;
+  };
+
+  console.log(projects);
+
+  const deleteProject = async (id: string) => {
+    const { data } = await axios.delete(`/dashboard/works/api?id=${id}`);
+    if (data.acknowledged === true) {
+      setRefetch((pre) => !pre);
+    } else {
+      console.log(data);
+    }
+  };
+
   return (
     <div className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
       <div className="flex items-center">
@@ -80,6 +103,7 @@ const ProjectList = ({ projects }: { projects: TProject[] }) => {
           <Table>
             <TableHeader>
               <TableRow>
+                <TableHead>No.</TableHead>
                 <TableHead className="hidden w-[100px] sm:table-cell">
                   <span className="sr-only">Image</span>
                 </TableHead>
@@ -96,6 +120,7 @@ const ProjectList = ({ projects }: { projects: TProject[] }) => {
             <TableBody>
               {projects?.map((pro, i) => (
                 <TableRow key={i}>
+                  <TableCell className="font-medium">{++i}</TableCell>
                   <TableCell className="hidden sm:table-cell">
                     <Image
                       alt="Product image"
@@ -108,7 +133,7 @@ const ProjectList = ({ projects }: { projects: TProject[] }) => {
                   <TableCell className="font-medium">{pro.title}</TableCell>
                   <TableCell className="">{pro.category}</TableCell>
                   <TableCell className="hidden md:table-cell">
-                    2023-07-12 10:42 AM
+                    {getTime(pro?.createdAt as Date)}
                   </TableCell>
                   <TableCell>
                     <DropdownMenu>
@@ -124,8 +149,15 @@ const ProjectList = ({ projects }: { projects: TProject[] }) => {
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuItem>Edit</DropdownMenuItem>
-                        <DropdownMenuItem>Delete</DropdownMenuItem>
+                        <DropdownMenuItem className="cursor-pointer">
+                          Edit
+                        </DropdownMenuItem>
+                        <DropdownMenuItem
+                          className="cursor-pointer"
+                          onClick={() => deleteProject(pro._id as string)}
+                        >
+                          Delete
+                        </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </TableCell>

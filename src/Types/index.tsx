@@ -50,7 +50,7 @@ export type TSkills = {
 };
 
 export type TProject = {
-  id?: number;
+  _id?: string;
   title: string;
   category: string;
   description: string;
@@ -60,4 +60,5 @@ export type TProject = {
   image: string;
   live: string;
   github: string;
+  createdAt?: Date;
 };

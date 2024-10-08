@@ -69,7 +69,7 @@ const AddProject = () => {
 
       const { data } = await axios.post(
         `${process.env.NEXT_PUBLIC_ROOT_URL}/dashboard/works/api`,
-        { ...details, image: response.data.data.url }
+        { ...details, image: response.data.data.url, createdAt: new Date() }
       );
       if (data.acknowledged) {
         setDetails({

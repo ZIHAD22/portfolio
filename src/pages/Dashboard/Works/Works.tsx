@@ -7,6 +7,7 @@ import axios from "axios";
 
 const Works = () => {
   const [projects, setProject] = useState([]);
+  const [refetch, setRefetch] = useState(false);
   const fetchProject = async () => {
     const { data } = await axios.get(
       `${process.env.NEXT_PUBLIC_ROOT_URL}/dashboard/works/api`
@@ -15,7 +16,7 @@ const Works = () => {
   };
   useEffect(() => {
     fetchProject();
-  }, []);
+  }, [refetch]);
   return (
     <Theme
       name="Works"
@@ -25,7 +26,9 @@ const Works = () => {
       isCenter={projects.length === 0}
       buttonLink="works/create-project"
     >
-      {projects.length !== 0 && <ProjectList projects={projects} />}
+      {projects.length !== 0 && (
+        <ProjectList projects={projects} setRefetch={setRefetch} />
+      )}
     </Theme>
   );
 };
