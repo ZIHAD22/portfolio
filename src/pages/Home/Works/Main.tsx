@@ -34,7 +34,7 @@ const Main = () => {
             live={project.live}
             stack={project.stack}
             title={project.title}
-            id={project.id}
+            _id={project._id}
           />
         ))}
       </div>

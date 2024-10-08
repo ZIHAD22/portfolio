@@ -204,18 +204,18 @@ export const skills: TSkills = {
 // fake project data
 export const projects: TProject[] = [
   {
-    id: 1,
+    _id: "1",
     title: "Weather App",
     category: "Web Application",
     description:
-      "A web application that provides real-time weather updates and forecasts using a public API.",
+      "A web application that _provides real-tim weather updates and forecasts using a public API.",
     stack: [{ name: "React" }, { name: "Node.js" }, { name: "Express" }],
     image: "https://ibb.co/crBqDdK",
     live: "https://weatherapp.example.com",
     github: "https://github.com/username/weather-app",
   },
   {
-    id: 2,
+    _id: "2",
     title: "Portfolio Website",
     category: "Personal",
     description:
@@ -226,7 +226,7 @@ export const projects: TProject[] = [
     github: "https://github.com/username/portfolio-website",
   },
   {
-    id: 3,
+    _id: "3",
     title: "E-commerce Platform",
     category: "Web Application",
     description:
@@ -237,7 +237,7 @@ export const projects: TProject[] = [
     github: "https://github.com/username/ecommerce-platform",
   },
   {
-    id: 4,
+    _id: "4",
     title: "Chat Application",
     category: "Web Application",
     description:
@@ -248,7 +248,7 @@ export const projects: TProject[] = [
     github: "https://github.com/username/chat-application",
   },
   {
-    id: 5,
+    _id: "5",
     title: "Task Manager",
     category: "Productivity",
     description:

@@ -13,7 +13,7 @@ const ProjectCard = ({
   github,
   live,
   stack,
-  id,
+  _id,
 }: TProject) => {
   const [mouseOver, setMouseOver] = useState(false);
   return (
