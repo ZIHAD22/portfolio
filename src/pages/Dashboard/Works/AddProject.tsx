@@ -37,6 +37,12 @@ const AddProject = () => {
     github: "",
   });
 
+  const [errors, setErrors] = useState({
+    id: "",
+    msg: "",
+  });
+  console.log(errors);
+
   const detailsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDetails({
       ...details,
@@ -178,13 +184,28 @@ const AddProject = () => {
             <Textarea
               value={details.description}
               name="description"
-              onChange={(v) =>
-                setDetails({
-                  ...details,
-                  description: v.target.value,
-                })
-              }
+              onChange={(v) => {
+                if (v.target.value.length >= 101) {
+                  setErrors({
+                    id: "description",
+                    msg: "Please Write in 100 characters",
+                  });
+                } else if (
+                  v.target.value.length <= 101 &&
+                  errors?.id === "description"
+                ) {
+                  setErrors({ id: "", msg: "" });
+                } else {
+                  setDetails({
+                    ...details,
+                    description: v.target.value,
+                  });
+                }
+              }}
               id="description"
+              className={`${
+                errors.id === "description" ? "border-red-900" : ""
+              }`}
               placeholder="Please include all information relevant to your issue."
             />
           </div>

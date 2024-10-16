@@ -230,7 +230,7 @@ export const projects: TProject[] = [
     title: "E-commerce Platform",
     category: "Web Application",
     description:
-      "An e-commerce platform with features like product listings, shopping cart, and payment processing.",
+      "",
     stack: [{ name: "Angular" }, { name: "Firebase" }, { name: "Bootstrap" }],
     image: "https://ibb.co/crBqDdK",
     live: "https://ecommerce.example.com",
