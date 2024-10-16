@@ -22,14 +22,8 @@ const ProjectCard = ({
       onMouseEnter={() => setMouseOver(true)}
       onMouseLeave={() => setMouseOver(false)}
     >
-      <div className="h-1/2 w-full p-3">
-        <Image
-          alt=""
-          src="/assets/work/project.png"
-          width={400}
-          height={200}
-          priority
-        />
+      <div className="h-1/2 w-full p-3 overflow-hidden">
+        <Image alt="" src={image} width={400} height={200} priority />
       </div>
       <div className="h-1/2 p-2 flex flex-col justify-evenly">
         <h1 className="p-2 text-xl">{title}</h1>
